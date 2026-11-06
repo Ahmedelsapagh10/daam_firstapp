@@ -16,9 +16,9 @@ class _MyStatefulScreenState extends State<MyStatefulScreen> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          setState(() {});
-          counter++;
-          print('counter : $counter');
+          setState(() {
+            counter++;
+          });
         },
       ),
 
