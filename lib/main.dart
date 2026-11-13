@@ -1,7 +1,5 @@
-import 'package:first_project/home_screen.dart';
+import 'package:first_project/products.dart';
 import 'package:flutter/material.dart';
-
-import 'home_screen2.dart';
 
 //! New Branch for session two [flutter]
 void main() {
@@ -13,6 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeScreen(), debugShowCheckedModeBanner: false);
+    return MaterialApp(
+      home: ProductsScreen(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
