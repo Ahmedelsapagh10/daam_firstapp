@@ -1,5 +1,9 @@
+import 'package:first_project/login_screen.dart';
 import 'package:first_project/products.dart';
 import 'package:flutter/material.dart';
+
+import 'image_view.dart';
+import 'splashscreen.dart';
 
 //! New Branch for session two [flutter]
 void main() {
@@ -12,7 +16,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ProductsScreen(),
+      routes: {
+        '/': (context) => SplashScreen(),
+        '/product': (context) => ProductsScreen(),
+
+        '/image': (context) => ImageView(),
+        '/login': (context) => LoginScreen(),
+      },
+      initialRoute: '/',
       debugShowCheckedModeBanner: false,
     );
   }

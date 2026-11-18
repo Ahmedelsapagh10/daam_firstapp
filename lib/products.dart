@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'custom_image_widget.dart';
 import 'custom_widget.dart';
+import 'model/product_model.dart';
 
 class ProductsScreen extends StatefulWidget {
   const new({super.key});
@@ -20,17 +21,25 @@ List images = [
   'assets/images/6.jpg',
   'assets/images/7.jpg',
   'assets/images/8.jpg',
-  'assets/images/5.jpg',
-  'assets/images/6.jpg',
-  'assets/images/7.jpg',
-  'assets/images/8.jpg',
 ];
 
 class _ProductsScreenState extends State<ProductsScreen> {
   @override
   Widget build(BuildContext context) {
+    final arg = ModalRoute.of(context)?.settings.arguments as Map;
+
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text('AppBar')),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Hero(
+          curve: Curves.easeInOut,
+          tag: 'xyz',
+          child: Text(
+            "Welcome ${arg['email']}",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+          ),
+        ),
+      ),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
@@ -42,7 +51,21 @@ class _ProductsScreenState extends State<ProductsScreen> {
         itemCount: images.length,
         itemBuilder: (context, index) {
           // return myWidgets[index];
-          return MyImageWidget(image: images[index]);
+          return InkWell(
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/image',
+                arguments: ["image_$index", images[index]],
+              );
+            },
+            child: Hero(
+              tag: images[index],
+              curve: Curves.easeInOut,
+
+              child: Image.asset(images[index], fit: BoxFit.cover),
+            ),
+          );
         },
       ),
     );
