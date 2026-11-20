@@ -1,4 +1,5 @@
 import 'package:first_project/local_storage/local_data.dart';
+import 'package:first_project/screens/torch.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/custom_text_field.dart';
@@ -87,6 +88,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
+                ),
+              ),
+
+              SizedBox(height: 50),
+              Center(
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyFlashApp()),
+                    );
+                  },
+                  icon: Icon(Icons.flashlight_on_outlined, color: Colors.red),
                 ),
               ),
             ],
