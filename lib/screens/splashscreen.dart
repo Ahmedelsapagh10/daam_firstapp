@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:first_project/local_storage/local_data.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -10,11 +13,29 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    getEmailAndPassword();
     Future.delayed(Duration(seconds: 1), () {
-      Navigator.pushReplacementNamed(context, '/login');
+      log('email: $email');
+      log('password: $password');
+      if (email != null && password != null) {
+        Navigator.pushReplacementNamed(
+          context,
+          '/product',
+          arguments: {'email': email, 'password': password},
+        );
+      } else {
+        Navigator.pushReplacementNamed(context, '/login');
+      }
     });
 
     super.initState();
+  }
+
+  String? email;
+  String? password;
+  void getEmailAndPassword() async {
+    email = await MyLocalStorage().getEmail();
+    password = await MyLocalStorage().getPassword();
   }
 
   @override

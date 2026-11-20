@@ -1,12 +1,14 @@
-import 'package:first_project/login_screen.dart';
-import 'package:first_project/products.dart';
+import 'package:first_project/screens/login_screen.dart';
+import 'package:first_project/screens/products.dart';
 import 'package:flutter/material.dart';
 
-import 'image_view.dart';
-import 'splashscreen.dart';
+import 'screens/image_view.dart';
+import 'screens/splashscreen.dart';
 
 //! New Branch for session two [flutter]
 void main() {
+
+
   runApp(const MyApp());
 }
 
@@ -19,7 +21,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => SplashScreen(),
         '/product': (context) => ProductsScreen(),
-
         '/image': (context) => ImageView(),
         '/login': (context) => LoginScreen(),
       },

@@ -1,9 +1,10 @@
-import 'package:first_project/image_view.dart';
+import 'package:first_project/local_storage/local_data.dart';
+import 'package:first_project/screens/image_view.dart';
 import 'package:flutter/material.dart';
 
-import 'custom_image_widget.dart';
-import 'custom_widget.dart';
-import 'model/product_model.dart';
+import '../widgets/custom_image_widget.dart';
+import '../widgets/custom_widget.dart';
+import '../model/product_model.dart';
 
 class ProductsScreen extends StatefulWidget {
   const new({super.key});
@@ -39,6 +40,15 @@ class _ProductsScreenState extends State<ProductsScreen> {
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await MyLocalStorage().clearUserData();
+              Navigator.pushReplacementNamed(context, '/');
+            },
+            icon: Icon(Icons.logout),
+          ),
+        ],
       ),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

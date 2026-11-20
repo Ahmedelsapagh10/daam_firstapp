@@ -1,4 +1,4 @@
-import 'package:first_project/details.dart';
+import 'package:first_project/screens/details.dart';
 import 'package:flutter/material.dart';
 
 class MyCustomWidget extends StatefulWidget {
