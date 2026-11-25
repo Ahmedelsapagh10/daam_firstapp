@@ -47,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ? Center(child: CircularProgressIndicator())
               : Center(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         context.watch<HomeCubit>().counter.toString(),
