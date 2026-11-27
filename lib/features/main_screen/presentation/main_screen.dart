@@ -1,5 +1,5 @@
 import 'package:first_project/features/home_screen/cubit/cubit.dart';
-import 'package:first_project/features/home_screen/presentation/home_screen.dart';
+import 'package:first_project/features/home_screen/presentation/screen/home_screen.dart';
 import 'package:first_project/features/profile/presentation/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-    
+
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),

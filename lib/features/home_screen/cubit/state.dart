@@ -9,3 +9,5 @@ class DecreamentHomeState extends HomeState {}
 class LoadingScreen extends HomeState {}
 
 class SuccessScreen extends HomeState {}
+
+class ErrorScreen extends HomeState {}
